@@ -1,3 +1,4 @@
+" plugins configuration using pathogen and vundle
 execute pathogen#infect()
 
 set nocompatible
@@ -5,9 +6,16 @@ filetype off
 
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'wincent/command-t'
 
+" scala integration (syntax, autocomplete...)
+Plugin 'derekwyatt/vim-scala'
+
+Plugin 'tpope/vim-surround'
 call vundle#end()
+" end plugin configuration
 
+let mapleader = ","
 syntax on
 
 " hybrid line numbering
@@ -31,6 +39,7 @@ set autoindent
 
 " shows interactive menu when autocompleting file names
 set wildmenu
+set wildignore+=*/target,*/node_modules
 
 if has("autocmd")
   filetype on
